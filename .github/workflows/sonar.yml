@@ -22,7 +22,6 @@ jobs:
     permissions:
       contents: write
       packages: write
-
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -41,7 +40,7 @@ jobs:
           dotnet-version: ${{ env.DOTNET_VERSION }}
 
       - name: Restore (NuGet)
-        run: dotnet restore
+        run: dotnet restore Bank/Bank.sln
 
       - name: Mostrar fuentes NuGet
         run: dotnet nuget list source
@@ -54,12 +53,12 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         run: |
           dotnet-sonarscanner begin /k:"${{ env.SONAR_PROJECT }}" /o:"${{ env.SONAR_ORG }}" /d:sonar.login="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io" /d:sonar.cs.opencover.reportsPaths="**/TestResults/**/coverage.opencover.xml" /d:sonar.qualitygate.wait=true
-          dotnet build --no-incremental
-          dotnet test --collect:"XPlat Code Coverage;Format=opencover"
+          dotnet build Bank/Bank.sln --no-incremental
+          dotnet test Bank/Bank.sln --collect:"XPlat Code Coverage;Format=opencover"
           dotnet-sonarscanner end /d:sonar.login="${{ secrets.SONAR_TOKEN }}"
 
       - name: Empaquetar (dotnet pack)
-        run: dotnet pack Bank/Bank.Domain/Bank.Domain.csproj -c Release -o out /p:Version=$PACKAGE_VERSION
+        run: dotnet pack Bank/Bank.Domain/Bank.Domain.csproj -c Release -o out /p:Version=1.0.0
 
       - name: Agregar fuente GitHub Packages
         run: dotnet nuget add source ${{ env.NUGET_SOURCE_URL }} --name ${{ env.NUGET_SOURCE_NAME }} --username ${{ github.actor }} --password ${{ secrets.GITHUB_TOKEN }} --store-password-in-clear-text
@@ -73,7 +72,6 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
-
     steps:
       - name: Checkout (con historial completo)
         uses: actions/checkout@v4
@@ -83,12 +81,12 @@ jobs:
       - name: Crear tag v1.0.0 si no existe
         shell: bash
         run: |
-          if ! git rev-parse -q --verify "refs/tags/v$PACKAGE_VERSION"; then
-            git tag "v$PACKAGE_VERSION"
-            git push origin "v$PACKAGE_VERSION"
+          if ! git rev-parse -q --verify "refs/tags/v1.0.0"; then
+            git tag v1.0.0
+            git push origin v1.0.0
           fi
 
-      - name: Crear Release en GitHub y adjuntar .nupkg
+      - name: Crear Release v1.0.0 (notas automáticas) y adjuntar .nupkg
         uses: softprops/action-gh-release@v1
         with:
           tag_name: v1.0.0
