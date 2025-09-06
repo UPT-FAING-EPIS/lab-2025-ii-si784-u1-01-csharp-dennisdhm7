@@ -2,9 +2,9 @@ name: CI - SonarCloud, Tests, NuGet y Release
 
 env:
   DOTNET_VERSION: '9.x'                         
-  SONAR_ORG: 'dennisdhm7'                       # Organization Key en SonarCloud
-  SONAR_PROJECT: 'dennisdhm7_apibank'           # Project Key en SonarCloud
-  PACKAGE_VERSION: '1.0.0'                      # Versión del paquete NuGet
+  SONAR_ORG: 'dennisdhm7'
+  SONAR_PROJECT: 'dennisdhm7_apibank'
+  PACKAGE_VERSION: '1.0.0'
   NUGET_SOURCE_NAME: 'github'
   NUGET_SOURCE_URL: 'https://nuget.pkg.github.com/UPT-FAING-EPIS/index.json'
 
@@ -40,7 +40,7 @@ jobs:
           dotnet-version: ${{ env.DOTNET_VERSION }}
 
       - name: Restore (NuGet)
-        run: dotnet restore
+        run: dotnet restore Bank/Bank.sln
 
       - name: Mostrar fuentes NuGet
         run: dotnet nuget list source
@@ -53,8 +53,8 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         run: |
           dotnet-sonarscanner begin /k:"${{ env.SONAR_PROJECT }}" /o:"${{ env.SONAR_ORG }}" /d:sonar.login="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io" /d:sonar.cs.opencover.reportsPaths="**/TestResults/**/coverage.opencover.xml" /d:sonar.qualitygate.wait=true
-          dotnet build --no-incremental
-          dotnet test --collect:"XPlat Code Coverage;Format=opencover"
+          dotnet build Bank/Bank.sln --no-incremental
+          dotnet test Bank/Bank.sln --collect:"XPlat Code Coverage;Format=opencover"
           dotnet-sonarscanner end /d:sonar.login="${{ secrets.SONAR_TOKEN }}"
 
       - name: Empaquetar (dotnet pack)
@@ -91,8 +91,8 @@ jobs:
         with:
           tag_name: v1.0.0
           name: v1.0.0
-          generate_release_notes: true        # Genera notas a partir de mensajes de commits/PRs
+          generate_release_notes: true
           files: |
-            out/*.nupkg                       # Asegúrate que el pack dejó el .nupkg en 'out/'
+            out/*.nupkg
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
