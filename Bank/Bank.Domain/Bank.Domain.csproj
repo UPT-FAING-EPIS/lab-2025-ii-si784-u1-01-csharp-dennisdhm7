@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    <PackageId>Bank.Domain</PackageId>
+    <Version>1.0.0</Version> 
+    <Authors>dennisdhm7</Authors>
+    <Company>dennisdhm7</Company>
+    <Description>Domain models for Bank.</Description>
+    <RepositoryUrl>https://github.com/UPT-FAING-EPIS/lab-2025-ii-si784-u1-01-csharp-dennisdhm7</RepositoryUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+  </PropertyGroup>
+
+</Project>

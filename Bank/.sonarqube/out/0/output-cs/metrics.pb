@@ -1,0 +1,4 @@
+¬
+qE:\Calidad Y Pruebas de Software\lab-2025-ii-si784-u1-01-csharp-dennisdhm7\Bank\Bank.Domain\Models\BankAccount.cs 8	r	
+x‚
+

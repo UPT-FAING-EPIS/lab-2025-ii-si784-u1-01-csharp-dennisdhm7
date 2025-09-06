@@ -1,0 +1,1 @@
+RzE:\Calidad Y Pruebas de Software\lab-2025-ii-si784-u1-01-csharp-dennisdhm7\Bank\Bank.Domain.Tests\Bank.Domain.Tests.csproj¢net9.0òCSharp13

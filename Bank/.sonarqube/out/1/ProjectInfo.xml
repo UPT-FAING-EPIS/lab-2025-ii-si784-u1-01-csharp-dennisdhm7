@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ProjectInfo xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.sonarsource.com/msbuild/integration/2015/1">
+  <ProjectName>Bank.Domain.Tests</ProjectName>
+  <ProjectLanguage>C#</ProjectLanguage>
+  <ProjectType>Test</ProjectType>
+  <ProjectGuid>95414c15-ea7a-4dee-9f70-f991ff570098</ProjectGuid>
+  <FullPath>E:\Calidad Y Pruebas de Software\lab-2025-ii-si784-u1-01-csharp-dennisdhm7\Bank\Bank.Domain.Tests\Bank.Domain.Tests.csproj</FullPath>
+  <IsExcluded>false</IsExcluded>
+  <AnalysisResults>
+    <AnalysisResult Id="FilesToAnalyze" Location="E:\Calidad Y Pruebas de Software\lab-2025-ii-si784-u1-01-csharp-dennisdhm7\Bank\.sonarqube\conf\1\FilesToAnalyze.txt" />
+  </AnalysisResults>
+  <AnalysisSettings>
+    <Property Name="sonar.cs.roslyn.reportFilePaths">E:\Calidad Y Pruebas de Software\lab-2025-ii-si784-u1-01-csharp-dennisdhm7\Bank\.sonarqube\out\1\Issues.json</Property>
+    <Property Name="sonar.cs.analyzer.projectOutPaths">E:\Calidad Y Pruebas de Software\lab-2025-ii-si784-u1-01-csharp-dennisdhm7\Bank\.sonarqube\out\1</Property>
+    <Property Name="sonar.cs.scanner.telemetry">E:\Calidad Y Pruebas de Software\lab-2025-ii-si784-u1-01-csharp-dennisdhm7\Bank\.sonarqube\out\1\Telemetry.json</Property>
+  </AnalysisSettings>
+  <Configuration>Debug</Configuration>
+  <Platform>AnyCPU</Platform>
+  <TargetFramework>net9.0</TargetFramework>
+</ProjectInfo>

@@ -1,0 +1,7 @@
+organization=dennisdhm7
+projectKey=dennisdhm7_apibank
+serverUrl=https://sonarcloud.io
+serverVersion=8.0.0.66870
+dashboardUrl=https://sonarcloud.io/dashboard?id=dennisdhm7_apibank
+ceTaskId=AZkeNF_rRF8-u7IlvNZn
+ceTaskUrl=https://sonarcloud.io/api/ce/task?id=AZkeNF_rRF8-u7IlvNZn
